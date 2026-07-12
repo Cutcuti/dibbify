@@ -5,8 +5,8 @@
 // ─────────────────────────────────────────────────────────────
 
 export const playlist = {
-  title: 'Dibbify',
-  subtitle: 'Protik’s picks · 2 songs',
+  title: 'Pro Pro Songs',
+  subtitle: 'Protik’s picks · 3 songs',
   cover: '/covers/tere-pass-mai.jpg', // header art (uses track 1's cover)
   tracks: [
     {
@@ -26,6 +26,15 @@ export const playlist = {
       duration: 0,
       cover: '/covers/hin-dil-ju.jpg', // red-cap (white kurta) photo
       src: '/audio/hin-dil-ju.m4a',
+    },
+    {
+      id: 3,
+      title: 'Alag Aasmaan',
+      artist: 'Protik',
+      album: 'Pro Pro Songs',
+      duration: 0,
+      cover: '/covers/alag-aasmaan.jpg', // varsity jacket / sunset photo
+      src: '/audio/alag-aasmaan.mp3',
     },
   ],
 }
