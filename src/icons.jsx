@@ -25,6 +25,10 @@ export const IconSearch = () => (
 export const IconLibrary = () => (
   <svg {...S}><path d="M4 4h2v16H4zM8 4h2v16H8zM13 4l6 1.6-4 14.4-6-1.6z" transform="translate(0,0)"/></svg>
 )
+export const IconChevronDown = () => (<svg {...S}><path d="M6 9l6 6 6-6z" /></svg>)
+export const IconExpand = () => (
+  <svg {...S}><path d="M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zM4 14h2v4h4v2H4v-6zm14 0h2v6h-6v-2h4v-4z"/></svg>
+)
 export const IconHeart = ({ filled }) => (
   filled
     ? <svg {...S}><path d="M12 21s-7.5-4.9-10-9.3C.4 8.4 2 5 5.2 5c2 0 3.3 1.1 4 2.2C9.8 6.1 11.1 5 13.1 5 16.3 5 18 8.4 16.3 11.7 13.9 16.1 12 21 12 21z"/></svg>

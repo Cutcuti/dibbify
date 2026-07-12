@@ -3,6 +3,7 @@ import { playlist } from './data.js'
 import {
   IconPlay, IconPause, IconNext, IconPrev, IconShuffle, IconRepeat,
   IconVolume, IconVolumeMute, IconHome, IconSearch, IconLibrary, IconHeart,
+  IconChevronDown, IconExpand,
 } from './icons.jsx'
 
 const fmt = (s) => {
@@ -48,6 +49,8 @@ export default function App() {
   const [shuffle, setShuffle] = useState(false)
   const [repeat, setRepeat] = useState('off') // off | all | one
   const [liked, setLiked] = useState(() => new Set())
+  const [expanded, setExpanded] = useState(false) // full-screen Now Playing
+  const [ambient, setAmbient] = useState('#333') // color pulled from cover art
 
   const tracks = playlist.tracks
   const track = tracks[current]
@@ -120,6 +123,37 @@ export default function App() {
     if (a) a.volume = muted ? 0 : volume
   }, [volume, muted])
 
+  // Pull an average colour from the current cover for the ambient backdrop.
+  useEffect(() => {
+    if (!track.cover) { setAmbient('#333'); return }
+    let cancelled = false
+    const img = new Image()
+    img.crossOrigin = 'anonymous'
+    img.onload = () => {
+      if (cancelled) return
+      try {
+        const c = document.createElement('canvas')
+        const w = (c.width = 24), h = (c.height = 24)
+        const ctx = c.getContext('2d')
+        ctx.drawImage(img, 0, 0, w, h)
+        const { data } = ctx.getImageData(0, 0, w, h)
+        let r = 0, g = 0, b = 0, n = 0
+        for (let i = 0; i < data.length; i += 4) {
+          if (data[i + 3] < 125) continue
+          r += data[i]; g += data[i + 1]; b += data[i + 2]; n++
+        }
+        if (n && !cancelled) {
+          setAmbient(`rgb(${Math.round(r / n)}, ${Math.round(g / n)}, ${Math.round(b / n)})`)
+        }
+      } catch {
+        if (!cancelled) setAmbient('#333')
+      }
+    }
+    img.onerror = () => { if (!cancelled) setAmbient('#333') }
+    img.src = track.cover
+    return () => { cancelled = true }
+  }, [track.cover])
+
   const onEnded = () => {
     if (repeat === 'one') {
       const a = audioRef.current
@@ -143,7 +177,25 @@ export default function App() {
 
   return (
     <div className="app">
-      <div className="grid">
+      {expanded && (
+        <section className="now-screen" style={{ '--amb': ambient }}>
+          <div className="ns-top">
+            <button className="ns-close" onClick={() => setExpanded(false)} aria-label="Minimize">
+              <IconChevronDown />
+            </button>
+            <span className="ns-context">{playlist.title}</span>
+            <span className="ns-spacer" />
+          </div>
+          <div className="ns-body">
+            <Cover track={track} className="ns-art" />
+            <div className="ns-meta">
+              <h2>{track.title}</h2>
+              <p>{track.artist}</p>
+            </div>
+          </div>
+        </section>
+      )}
+      <div className="grid" style={expanded ? { display: 'none' } : undefined}>
         {/* ── Sidebar ───────────────────────────────── */}
         <aside className="sidebar">
           <div className="brand">
@@ -236,11 +288,18 @@ export default function App() {
       {/* ── Now Playing Bar ─────────────────────────── */}
       <footer className="now-bar">
         <div className="np-left">
-          <Cover track={track} className="md" />
-          <div className="np-meta">
-            <span className="np-title">{track.title}</span>
-            <span className="np-artist">{track.artist}</span>
-          </div>
+          <button
+            className="np-open"
+            onClick={() => setExpanded((e) => !e)}
+            aria-label={expanded ? 'Close full screen' : 'Open full screen'}
+          >
+            <Cover track={track} className="md" />
+            <div className="np-meta">
+              <span className="np-title">{track.title}</span>
+              <span className="np-artist">{track.artist}</span>
+            </div>
+            <span className="np-expand"><IconExpand /></span>
+          </button>
           <button
             className={`heart ${liked.has(track.id) ? 'on' : ''}`}
             onClick={() => toggleLike(track.id)}
