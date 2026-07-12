@@ -6,7 +6,7 @@
 
 export const playlist = {
   title: 'Pro Pro Songs',
-  subtitle: 'Protik’s picks · 3 songs',
+  subtitle: 'Protik’s picks · 5 songs',
   cover: '/covers/tere-pass-mai.jpg', // header art (uses track 1's cover)
   tracks: [
     {
@@ -35,6 +35,24 @@ export const playlist = {
       duration: 0,
       cover: '/covers/alag-aasmaan.jpg', // varsity jacket / sunset photo
       src: '/audio/alag-aasmaan.mp3',
+    },
+    {
+      id: 4,
+      title: 'Photograph',
+      artist: 'Protik',
+      album: 'Pro Pro Songs',
+      duration: 0,
+      cover: '/covers/photograph.png', // guitar / sunset photo
+      src: '/audio/photograph.mp3',
+    },
+    {
+      id: 5,
+      title: 'Daisy Tune 💛',
+      artist: 'Protik',
+      album: 'Pro Pro Songs',
+      duration: 0,
+      cover: '/covers/daisy.webp', // daisy flower
+      src: '/audio/daisy-tune.m4a',
     },
   ],
 }
