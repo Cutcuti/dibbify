@@ -5,9 +5,9 @@
 // ─────────────────────────────────────────────────────────────
 
 export const playlist = {
-  title: 'Pro Pro Songs',
+  title: 'Probiotic’s Songs? 🫠',
   subtitle: 'Protik’s picks · 5 songs',
-  cover: '/covers/tere-pass-mai.jpg', // header art (uses track 1's cover)
+  cover: '/covers/albumcover.jpg', // playlist header / album art
   tracks: [
     {
       id: 1,
@@ -48,7 +48,7 @@ export const playlist = {
     {
       id: 5,
       title: 'Daisy Tune 💛',
-      artist: 'Protik',
+      artist: 'Dibs',
       album: 'Pro Pro Songs',
       duration: 0,
       cover: '/covers/daisy.webp', // daisy flower
