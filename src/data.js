@@ -13,7 +13,7 @@ export const playlist = {
       id: 1,
       title: 'Tere Pass Mai',
       artist: 'Protik',
-      album: 'Dibbify',
+      album: 'Probiotic’s Songs? 🫠',
       duration: 0, // auto-filled from the audio once loaded
       cover: '/covers/tere-pass-mai.jpg', // pagdi (navy) photo
       src: '/audio/tere-pass-mai.m4a',
@@ -22,7 +22,7 @@ export const playlist = {
       id: 2,
       title: 'Hin Dil Ju',
       artist: 'Protik',
-      album: 'Dibbify',
+      album: 'Probiotic’s Songs? 🫠',
       duration: 0,
       cover: '/covers/hin-dil-ju.jpg', // red-cap (white kurta) photo
       src: '/audio/hin-dil-ju.m4a',
@@ -31,7 +31,7 @@ export const playlist = {
       id: 3,
       title: 'Alag Aasmaan',
       artist: 'Protik',
-      album: 'Pro Pro Songs',
+      album: 'Probiotic’s Songs? 🫠',
       duration: 0,
       cover: '/covers/alag-aasmaan.jpg', // varsity jacket / sunset photo
       src: '/audio/alag-aasmaan.mp3',
@@ -40,7 +40,7 @@ export const playlist = {
       id: 4,
       title: 'Photograph',
       artist: 'Protik',
-      album: 'Pro Pro Songs',
+      album: 'Probiotic’s Songs? 🫠',
       duration: 0,
       cover: '/covers/photograph.png', // guitar / sunset photo
       src: '/audio/photograph.mp3',
@@ -49,7 +49,7 @@ export const playlist = {
       id: 5,
       title: 'Daisy Tune 💛',
       artist: 'Dibs',
-      album: 'Pro Pro Songs',
+      album: 'Probiotic’s Songs? 🫠',
       duration: 0,
       cover: '/covers/daisy.webp', // daisy flower
       src: '/audio/daisy-tune.m4a',
