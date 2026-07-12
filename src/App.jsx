@@ -62,11 +62,15 @@ export default function App() {
     return (current + 1) % tracks.length
   }, [shuffle, current, tracks.length])
 
-  const goNext = useCallback(() => setCurrent(pickNext()), [pickNext])
+  const goNext = useCallback(() => {
+    setCurrent(pickNext())
+    setPlaying(true)
+  }, [pickNext])
   const goPrev = useCallback(() => {
     const a = audioRef.current
     if (a && a.currentTime > 3) { a.currentTime = 0; return }
     setCurrent((c) => (c - 1 + tracks.length) % tracks.length)
+    setPlaying(true)
   }, [tracks.length])
 
   const selectTrack = (i) => {
@@ -88,26 +92,28 @@ export default function App() {
     })
   }
 
-  // Sync play/pause with the <audio> element.
-  useEffect(() => {
-    const a = audioRef.current
-    if (!a) return
-    if (playing && hasAudio) {
-      a.play().catch(() => setPlaying(false))
-    } else {
-      a.pause()
-    }
-  }, [playing, current, hasAudio])
-
-  // Load new source when track changes.
+  // Load new source + reset when the track changes. Declared BEFORE the
+  // play/pause controller so load() runs first and can't abort its play().
   useEffect(() => {
     const a = audioRef.current
     if (!a) return
     setProgress(0)
     setDuration(0)
     a.load()
-    if (playing && hasAudio) a.play().catch(() => setPlaying(false))
-  }, [current]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [current])
+
+  // Single source of truth for play/pause. Runs after the load effect above.
+  useEffect(() => {
+    const a = audioRef.current
+    if (!a) return
+    if (playing && hasAudio) {
+      // Swallow transient AbortErrors (e.g. a rapid load/play) instead of
+      // flipping `playing` off, which was leaving next/prev tracks paused.
+      a.play().catch(() => {})
+    } else {
+      a.pause()
+    }
+  }, [playing, current, hasAudio])
 
   useEffect(() => {
     const a = audioRef.current
