@@ -224,7 +224,6 @@ export default function App() {
               )
             })}
           </div>
-          <p className="hint">Drop your files in <code>public/audio/</code> &amp; <code>public/covers/</code>, then edit <code>src/data.js</code>.</p>
         </main>
       </div>
 
