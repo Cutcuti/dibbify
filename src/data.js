@@ -1,0 +1,31 @@
+// ─────────────────────────────────────────────────────────────
+// Dibbify playlist. Audio lives in  public/audio/ , covers in
+// public/covers/. `cover` can stay pointing at a missing file —
+// the UI shows a gradient placeholder until the image is added.
+// ─────────────────────────────────────────────────────────────
+
+export const playlist = {
+  title: 'Dibbify',
+  subtitle: 'Protik’s picks · 2 songs',
+  cover: '/covers/tere-pass-mai.jpg', // header art (uses track 1's cover)
+  tracks: [
+    {
+      id: 1,
+      title: 'Tere Pass Mai',
+      artist: 'Protik',
+      album: 'Dibbify',
+      duration: 0, // auto-filled from the audio once loaded
+      cover: '/covers/tere-pass-mai.jpg', // pagdi (navy) photo
+      src: '/audio/tere-pass-mai.m4a',
+    },
+    {
+      id: 2,
+      title: 'Hin Dil Ju',
+      artist: 'Protik',
+      album: 'Dibbify',
+      duration: 0,
+      cover: '/covers/hin-dil-ju.jpg', // red-cap (white kurta) photo
+      src: '/audio/hin-dil-ju.m4a',
+    },
+  ],
+}
