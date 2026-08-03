@@ -6,7 +6,7 @@
 
 export const playlist = {
   title: 'Probiotic’s Songs? 🫠',
-  subtitle: 'Protik’s picks · 5 songs',
+  subtitle: 'Protik’s picks · 6 songs',
   cover: '/covers/albumcover.jpg', // playlist header / album art
   tracks: [
     {
@@ -53,6 +53,15 @@ export const playlist = {
       duration: 0,
       cover: '/covers/daisy.webp', // daisy flower
       src: '/audio/daisy-tune.m4a',
+    },
+    {
+      id: 6,
+      title: 'Amnesia',
+      artist: 'Protik',
+      album: 'Probiotic’s Songs? 🫠',
+      duration: 0,
+      cover: '', // TODO: add cover to public/covers/ once uploaded
+      src: '', // TODO: add audio to public/audio/ once uploaded
     },
   ],
 }
