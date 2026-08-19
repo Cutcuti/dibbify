@@ -10,6 +10,15 @@ export const playlist = {
   cover: '/covers/albumcover.jpg', // playlist header / album art
   tracks: [
     {
+      id: 5,
+      title: 'Amnesia',
+      artist: 'Protik',
+      album: 'Probiotic’s Songs? 🫠',
+      duration: 0,
+      cover: '/covers/amnesia.png', // 5SOS wall photo
+      src: '/audio/amnesia.m4a',
+    },
+    {
       id: 1,
       title: 'Tere Pass Mai',
       artist: 'Protik',
@@ -44,15 +53,6 @@ export const playlist = {
       duration: 0,
       cover: '/covers/photograph.png', // guitar / sunset photo
       src: '/audio/photograph.mp3',
-    },
-    {
-      id: 5,
-      title: 'Amnesia',
-      artist: 'Protik',
-      album: 'Probiotic’s Songs? 🫠',
-      duration: 0,
-      cover: '/covers/amnesia.png', // 5SOS wall photo
-      src: '/audio/amnesia.m4a',
     },
     {
       id: 6,
