@@ -47,21 +47,21 @@ export const playlist = {
     },
     {
       id: 5,
+      title: 'Amnesia',
+      artist: 'Protik',
+      album: 'Probiotic’s Songs? 🫠',
+      duration: 0,
+      cover: '/covers/amnesia.png', // 5SOS wall photo
+      src: '/audio/amnesia.m4a',
+    },
+    {
+      id: 6,
       title: 'Daisy Tune 💛',
       artist: 'Dibs',
       album: 'Probiotic’s Songs? 🫠',
       duration: 0,
       cover: '/covers/daisy.webp', // daisy flower
       src: '/audio/daisy-tune.m4a',
-    },
-    {
-      id: 6,
-      title: 'Amnesia',
-      artist: 'Protik',
-      album: 'Probiotic’s Songs? 🫠',
-      duration: 0,
-      cover: '', // TODO: add cover to public/covers/ once uploaded
-      src: '', // TODO: add audio to public/audio/ once uploaded
     },
   ],
 }
