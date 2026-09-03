@@ -1,8 +1,12 @@
-# 🎵 Soundwave
+# 🎵 Dibbify
 
-A Spotify-style, single-playlist music player. Dark theme, green accents,
-play/pause, next/prev, seek, volume, shuffle, and repeat. Built with React + Vite,
-ready to deploy on Vercel.
+A Spotify-style music player for one playlist — **Probiotic's Songs? 🫠**.
+Dark theme, green accents, play/pause, next/prev, seek, volume, shuffle,
+repeat, and a full-screen "Now Playing" view with an ambient backdrop
+sampled from the current cover art. Built with React + Vite, deployed on
+Vercel.
+
+**Live:** [dibbify-music.vercel.app](https://dibbify-music.vercel.app)
 
 ## Run locally
 
@@ -13,26 +17,23 @@ npm run dev
 
 Open the URL Vite prints (usually http://localhost:5173).
 
-## Add your songs
+## The playlist
 
-1. Drop your audio files into `public/audio/` (e.g. `track1.mp3`).
-2. Drop cover images into `public/covers/` (e.g. `track1.jpg`). Square images look best.
-3. Edit `src/data.js` — set the `title`, `artist`, `album`, `cover`, and `src`
-   for each of the 5 tracks (and the playlist title/cover at the top).
-
-Missing files are handled gracefully: covers fall back to a gradient, and a track
-with no audio simply can't be played — no crashes.
+Tracks live in [`src/data.js`](src/data.js) — title, artist, album, cover,
+and audio source for each song. Audio files go in `public/audio/`, cover
+images in `public/covers/`. A track missing its cover falls back to a
+gradient, and a track missing audio simply can't be played — no crashes.
 
 ## Deploy to Vercel
 
-- **Easiest:** push this folder to a GitHub repo, then "Import Project" at
-  [vercel.com/new](https://vercel.com/new). Vercel auto-detects Vite — no config needed.
-- **Or via CLI:**
-  ```bash
-  npm i -g vercel
-  vercel        # preview deploy
-  vercel --prod # production deploy
-  ```
+Pushing to `main` deploys automatically once the project is linked to this
+repo on Vercel. To deploy by hand instead:
+
+```bash
+npm i -g vercel
+vercel        # preview deploy
+vercel --prod # production deploy
+```
 
 ## Tech
 
